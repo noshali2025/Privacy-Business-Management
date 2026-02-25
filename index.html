@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Arriverr Business Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       DESIGN SYSTEM — Deep Navy × Gold × Cream  (Luxury Editorial)
+    ═══════════════════════════════════════════════════════ */
+    :root {
+      --navy:        #0d1b2a;
+      --navy-mid:    #1b2e45;
+      --navy-soft:   #243b55;
+      --gold:        #c9a84c;
+      --gold-light:  #e2c97e;
+      --gold-pale:   #f9f3e3;
+      --cream:       #faf8f4;
+      --cream-dark:  #f0ece4;
+      --text-dark:   #1a1a2e;
+      --text-body:   #3d4452;
+      --text-muted:  #8a93a8;
+      --border:      #ddd8cc;
+      --white:       #ffffff;
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Jost', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      color: var(--text-body);
+      background: var(--cream);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ═══════ MASTHEAD ═══════ */
+    .masthead {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .masthead-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 100% 0%, rgba(201,168,76,.18) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 0% 100%, rgba(36,59,85,.8) 0%, transparent 70%),
+        linear-gradient(160deg, #0d1b2a 0%, #1b2e45 50%, #243b55 100%);
+      pointer-events: none;
+    }
+
+    .masthead-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .masthead-inner {
+      position: relative; z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 72px 32px 80px;
+    }
+
+    .masthead-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow-line { width: 32px; height: 1px; background: var(--gold); }
+
+    .eyebrow-text {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .masthead h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -.01em;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .masthead h1 span { color: var(--gold-light); font-style: italic; }
+
+    .masthead-desc {
+      font-size: .95rem;
+      color: rgba(255,255,255,.6);
+      max-width: 520px;
+      line-height: 1.75;
+      margin-bottom: 48px;
+    }
+
+    .masthead-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      border: 1px solid rgba(201,168,76,.25);
+      border-radius: 2px;
+      overflow: hidden;
+      width: fit-content;
+    }
+
+    .meta-cell { padding: 14px 28px; border-right: 1px solid rgba(201,168,76,.2); }
+    .meta-cell:last-child { border-right: none; }
+    .meta-cell dt { font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+    .meta-cell dd { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.85); }
+
+    /* ═══════ LAYOUT ═══════ */
+    .page-wrap {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 64px 32px 96px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) { .page-wrap { grid-template-columns: 1fr; } .toc-wrap { display: none; } }
+    @media (max-width: 600px) { .masthead-inner { padding: 48px 20px 56px; } .page-wrap { padding: 40px 20px 64px; } .section-body { padding: 28px 24px; } }
+
+    /* ═══════ TOC ═══════ */
+    .toc-wrap { position: sticky; top: 32px; }
+
+    .toc-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+      padding: 24px 0;
+    }
+
+    .toc-header {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 0 24px 16px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 8px;
+    }
+
+    .toc-list { list-style: none; }
+    .toc-list a { display: flex; align-items: baseline; gap: 10px; padding: 7px 24px; font-size: 12.5px; color: var(--text-body); text-decoration: none; transition: background .15s, color .15s; line-height: 1.45; }
+    .toc-list a:hover { background: var(--gold-pale); color: var(--navy); }
+    .toc-list .toc-num { font-size: 10px; color: var(--gold); font-weight: 600; flex-shrink: 0; width: 18px; }
+
+    /* ═══════ SECTIONS ═══════ */
+    .sections { display: flex; flex-direction: column; gap: 2px; }
+
+    .policy-section {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid transparent;
+      overflow: hidden;
+      animation: riseIn .5s ease both;
+    }
+
+    .policy-section:hover { border-left-color: var(--gold); }
+
+    @keyframes riseIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+    .policy-section:nth-child(1)  { animation-delay: .04s; }
+    .policy-section:nth-child(2)  { animation-delay: .08s; }
+    .policy-section:nth-child(3)  { animation-delay: .12s; }
+    .policy-section:nth-child(4)  { animation-delay: .16s; }
+    .policy-section:nth-child(5)  { animation-delay: .20s; }
+    .policy-section:nth-child(6)  { animation-delay: .24s; }
+    .policy-section:nth-child(7)  { animation-delay: .28s; }
+    .policy-section:nth-child(8)  { animation-delay: .32s; }
+    .policy-section:nth-child(9)  { animation-delay: .36s; }
+    .policy-section:nth-child(10) { animation-delay: .40s; }
+    .policy-section:nth-child(11) { animation-delay: .44s; }
+    .policy-section:nth-child(12) { animation-delay: .48s; }
+    .policy-section:nth-child(13) { animation-delay: .52s; }
+    .policy-section:nth-child(14) { animation-delay: .56s; }
+    .policy-section:nth-child(15) { animation-delay: .60s; }
+    .policy-section:nth-child(16) { animation-delay: .64s; }
+
+    .section-head { padding: 22px 32px; background: var(--navy); display: flex; align-items: center; gap: 16px; }
+
+    .section-num-badge {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(201,168,76,.5);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .section-kicker { font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: rgba(201,168,76,.6); }
+    .section-title { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--white); line-height: 1.2; }
+
+    .section-body { padding: 32px 36px; }
+
+    p { font-size: 14.5px; color: var(--text-body); line-height: 1.85; margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--text-dark); font-weight: 600; }
+    code { font-family: 'Courier New', monospace; font-size: 13px; background: var(--cream-dark); padding: 1px 5px; border-radius: 2px; }
+
+    /* ═══════ DATA TABLE ═══════ */
+    .data-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13.5px; }
+    .data-table thead tr { background: var(--navy); color: var(--white); }
+    .data-table th { padding: 12px 16px; text-align: left; font-weight: 500; letter-spacing: .05em; font-size: 11px; text-transform: uppercase; color: var(--gold-light); }
+    .data-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text-body); }
+    .data-table tbody tr:nth-child(even) td { background: var(--cream); }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+    .category-tag { display: inline-block; background: var(--gold-pale); border: 1px solid rgba(201,168,76,.35); color: #7a5c10; font-size: 11px; font-weight: 500; padding: 2px 10px; border-radius: 2px; white-space: nowrap; }
+
+    /* ═══════ ROLE GRID ═══════ */
+    .role-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin: 20px 0; }
+    .role-card { border: 1px solid var(--border); overflow: hidden; }
+    .role-card-head { background: var(--navy-mid); padding: 10px 14px; display: flex; align-items: center; gap: 8px; }
+    .role-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .role-card-head strong { font-size: 12px; font-weight: 600; color: var(--white); letter-spacing: .04em; }
+    .role-card-body { padding: 12px 14px; font-size: 12px; color: var(--text-body); line-height: 1.6; }
+
+    /* ═══════ CALLOUT BOXES ═══════ */
+    .callout { display: flex; gap: 16px; padding: 18px 20px; margin: 20px 0; border-radius: 1px; }
+    .callout-icon { font-size: 20px; flex-shrink: 0; line-height: 1.5; }
+    .callout-body { font-size: 13.5px; line-height: 1.75; }
+    .callout-body p { margin-bottom: 0; font-size: 13.5px; }
+    .callout-info    { background: #eff6ff; border-left: 3px solid #2563ab; }
+    .callout-warning { background: #fffbeb; border-left: 3px solid #d97706; }
+    .callout-alert   { background: #fef2f2; border-left: 3px solid #dc2626; }
+    .callout-success { background: #f0fdf4; border-left: 3px solid #16a34a; }
+    .callout-info    .callout-body, .callout-info    .callout-body p { color: #1e40af; }
+    .callout-warning .callout-body, .callout-warning .callout-body p { color: #92400e; }
+    .callout-alert   .callout-body, .callout-alert   .callout-body p { color: #991b1b; }
+    .callout-success .callout-body, .callout-success .callout-body p { color: #166534; }
+
+    /* ═══════ PLATFORM BADGES ═══════ */
+    .platforms { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }
+    .platform-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: var(--white); font-size: 12px; font-weight: 500; padding: 7px 14px; border-radius: 2px; }
+    .pb-icon { font-size: 15px; }
+
+    /* ═══════ RIGHTS LIST ═══════ */
+    .rights-list { display: flex; flex-direction: column; gap: 0; margin: 20px 0; border: 1px solid var(--border); }
+    .right-row { display: flex; gap: 0; border-bottom: 1px solid var(--border); }
+    .right-row:last-child { border-bottom: none; }
+    .right-icon-cell { width: 56px; background: var(--cream-dark); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; border-right: 1px solid var(--border); }
+    .right-content { padding: 14px 18px; }
+    .right-title { font-size: 13px; font-weight: 600; color: var(--text-dark); margin-bottom: 3px; }
+    .right-desc  { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
+
+    /* ═══════ CONTACT BLOCK ═══════ */
+    .contact-block { background: var(--navy); padding: 28px 32px; display: flex; gap: 24px; align-items: center; margin: 20px 0; }
+    .contact-shield { width: 52px; height: 52px; border: 1px solid rgba(201,168,76,.4); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; color: var(--gold); }
+    .contact-detail strong { display: block; font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 4px; letter-spacing: .04em; }
+    .contact-detail a { color: var(--gold-light); text-decoration: none; font-size: 14px; }
+    .contact-detail a:hover { text-decoration: underline; }
+
+    /* ═══════ FOOTER ═══════ */
+    footer { background: var(--navy); color: rgba(255,255,255,.45); text-align: center; padding: 36px 24px; font-size: 12.5px; line-height: 1.9; }
+    .footer-logo { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: var(--gold); letter-spacing: .04em; display: block; margin-bottom: 8px; }
+    footer a { color: rgba(255,255,255,.5); text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-bg"></div>
+  <div class="masthead-inner">
+    <div class="masthead-eyebrow">
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-text">Legal &amp; Compliance Document</span>
+    </div>
+    <h1>Privacy <span>Policy</span></h1>
+    <p class="masthead-desc">This policy explains exactly what data Arriverr Business Management collects, which device permissions it uses, how your information is stored and secured, and the rights you hold over your data.</p>
+    <dl class="masthead-meta">
+      <div class="meta-cell"><dt>Application</dt><dd>Arriverr Business Management</dd></div>
+      <div class="meta-cell"><dt>Publisher</dt><dd>Arriverr</dd></div>
+      <div class="meta-cell"><dt>Version</dt><dd>1.1.0 (Build 2)</dd></div>
+      <div class="meta-cell"><dt>Package ID</dt><dd>com.arriverr.business_management</dd></div>
+      <div class="meta-cell"><dt>Effective Date</dt><dd>February 25, 2026</dd></div>
+    </dl>
+  </div>
+</header>
+
+<!-- BODY LAYOUT -->
+<div class="page-wrap">
+
+  <!-- TABLE OF CONTENTS -->
+  <aside class="toc-wrap">
+    <nav class="toc-card">
+      <div class="toc-header">Contents</div>
+      <ul class="toc-list">
+        <li><a href="#s1"><span class="toc-num">01</span>App Overview &amp; Scope</a></li>
+        <li><a href="#s2"><span class="toc-num">02</span>Device Permissions</a></li>
+        <li><a href="#s3"><span class="toc-num">03</span>Information We Collect</a></li>
+        <li><a href="#s4"><span class="toc-num">04</span>How We Use Your Data</a></li>
+        <li><a href="#s5"><span class="toc-num">05</span>Firebase &amp; Cloud Services</a></li>
+        <li><a href="#s6"><span class="toc-num">06</span>FBR Tax Integration (PK)</a></li>
+        <li><a href="#s7"><span class="toc-num">07</span>ZATCA Integration (SA)</a></li>
+        <li><a href="#s8"><span class="toc-num">08</span>Role-Based Access Control</a></li>
+        <li><a href="#s9"><span class="toc-num">09</span>Offline Storage &amp; Caching</a></li>
+        <li><a href="#s10"><span class="toc-num">10</span>Data Security</a></li>
+        <li><a href="#s11"><span class="toc-num">11</span>Data Sharing &amp; Disclosure</a></li>
+        <li><a href="#s12"><span class="toc-num">12</span>Data Retention &amp; Deletion</a></li>
+        <li><a href="#s13"><span class="toc-num">13</span>Your Rights</a></li>
+        <li><a href="#s14"><span class="toc-num">14</span>Children's Privacy</a></li>
+        <li><a href="#s15"><span class="toc-num">15</span>Policy Changes</a></li>
+        <li><a href="#s16"><span class="toc-num">16</span>Contact Us</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="sections">
+
+    <!-- 01 -->
+    <article class="policy-section" id="s1">
+      <div class="section-head">
+        <div class="section-num-badge">1</div>
+        <div>
+          <div class="section-kicker">Introduction</div>
+          <div class="section-title">App Overview &amp; Scope</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <p><strong>Arriverr Business Management</strong> (package ID: <code>com.arriverr.business_management</code>) is a comprehensive, multi-platform Point-of-Sale and business operations application developed and published by <strong>Arriverr</strong>. The application is available on the following platforms:</p>
+        <div class="platforms">
+          <span class="platform-badge"><span class="pb-icon">🤖</span>Android</span>
+          <span class="platform-badge"><span class="pb-icon">🍎</span>iOS</span>
+          <span class="platform-badge"><span class="pb-icon">🪟</span>Windows (MSIX Store)</span>
+          <span class="platform-badge"><span class="pb-icon">🖥️</span>macOS</span>
+          <span class="platform-badge"><span class="pb-icon">🐧</span>Linux</span>
+          <span class="platform-badge"><span class="pb-icon">🌐</span>Web</span>
+        </div>
+        <p>This Privacy Policy governs the collection, processing, storage, and disclosure of information by the App across all supported platforms. It applies to <strong>business administrators</strong> who create and own a company account; <strong>sub-users</strong> (managers, cashiers, order bookers, viewers) added by the administrator; and all data entered into the system about third parties such as customers, suppliers, and employees.</p>
+        <div class="callout callout-info">
+          <div class="callout-icon">ℹ️</div>
+          <div class="callout-body"><p>By installing and using Arriverr Business Management, you agree to the terms of this Privacy Policy. Administrators are additionally responsible for ensuring that any third-party data they enter (customers, employees, suppliers) is collected and managed in compliance with applicable local laws.</p></div>
+        </div>
+        <p>The App supports multiple languages (English, Urdu, Arabic) and multiple currencies (PKR, SAR, USD, EUR, GBP, INR, AED, JPY, CNY, CAD, AUD), reflecting its international user base across Pakistan, Saudi Arabia, and other regions.</p>
+      </div>
+    </article>
+
+    <!-- 02 -->
+    <article class="policy-section" id="s2">
+      <div class="section-head">
+        <div class="section-num-badge">2</div>
+        <div>
+          <div class="section-kicker">Android &amp; Platform Permissions</div>
+          <div class="section-title">Device Permissions</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <p>The following permissions are declared in <code>AndroidManifest.xml</code> and equivalent platform configurations. Each permission is used exclusively for the stated purpose.</p>
+        <table class="data-table">
+          <thead><tr><th>Permission</th><th>Platform</th><th>Required?</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>INTERNET</code></td>
+              <td>Android · Windows*</td>
+              <td>Yes</td>
+              <td>Sync data with Google Firebase (Firestore + Auth); submit invoices to FBR government API</td>
+            </tr>
+            <tr>
+              <td><code>ACCESS_NETWORK_STATE</code></td>
+              <td>Android</td>
+              <td>Yes</td>
+              <td>Detect connectivity status to manage Firestore offline-first behaviour gracefully</td>
+            </tr>
+            <tr>
+              <td><code>CAMERA</code><br><code>android.hardware.camera</code></td>
+              <td>Android · iOS</td>
+              <td><strong>No</strong> (optional)</td>
+              <td>QR/barcode scanning for fast product lookup in POS screen via the <code>mobile_scanner</code> package. Declared with <code>android:required="false"</code> — the app functions fully without camera access</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>* On Windows (MSIX), the equivalent capabilities declared are <code>internetClient</code> and <code>privateNetworkClientServer</code>, enabling internet and local network access.</p>
+        <div class="callout callout-success">
+          <div class="callout-icon">✅</div>
+          <div class="callout-body"><p><strong>Camera data is never stored, transmitted, or retained.</strong> The camera is used exclusively for real-time barcode/QR decoding within the POS screen. No images or video frames are saved to disk or uploaded to any server. Only the decoded barcode string value is used to look up a matching product in your local database.</p></div>
+        </div>
+        <p>The App does not request or use Location, Microphone, Contacts, Calendar, Bluetooth, SMS, Phone, Storage (READ/WRITE), Push Notifications, or any device permissions beyond those listed above.</p>
+      </div>
+    </article>
+
+    <!-- 03 -->
+    <article class="policy-section" id="s3">
+      <div class="section-head">
+        <div class="section-num-badge">3</div>
+        <div>
+          <div class="section-kicker">Complete Data Inventory</div>
+          <div class="section-title">Information We Collect</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <p>All data collected by the App is business operational data explicitly entered by your organisation. We do not collect behavioural analytics, advertising identifiers, device fingerprints, or passive telemetry of any kind. The complete inventory of data stored in Cloud Firestore is:</p>
+        <table class="data-table">
+          <thead><tr><th>Category</th><th>Data Fields Stored</th><th>Sensitivity</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="category-tag">User Accounts</span></td>
+              <td>Email address, display name, UID, assigned role, companyId, granular permission strings, assigned area IDs, account creation &amp; update timestamps. Passwords are hashed and managed by Firebase Authentication — never stored in Firestore.</td>
+              <td>🔴 High</td>
+            </tr>
+            <tr>
+              <td><span class="category-tag">Company Settings</span></td>
+              <td>Company name, phone number, business address, country, currency code, default tax rate, default discount rate, theme preference (light/dark/system), app language (en/ur/ar), setup completion status</td>
+              <td>🟡 Medium</td>
+            </tr>
+            <tr>
+              <td><span class="category-tag">Customers</span></td>
+              <td>Full name, phone number, email (optional), postal address (optional), city, area/zone, account balance, cumulative total sales value, creation &amp; update timestamps</td>
+              <td>🔴 High</td>
+            </tr>
+            <tr>
+              <td><span class="category-tag">Suppliers</span></td>
+              <td>Supplier name, phone number, email (optional), postal address, city, area, outstanding balance, timestamps</td>
+              <td>🔴 High</td>
+            </tr>
+            <tr>
+              <td><span class="category-tag">Employees</span></td>
+              <td>Full name, job designation, phone number, email (optional), address (optional), salary amount, joining date, advance/balance amount, active status flag, timestamps</td>
+              <td>🔴 High</td>
+            </tr>
+            <tr>
+              <td><span class="category-tag">Products &amp; Inventory</span></td>
+              <td>Product name, barcode/SKU, category, unit of measure, purchase price, sale price, current stock quantity, low-stock alert threshold</td>
+              <td>🟡 Medium</td>
+            </tr>
+            <tr>
+              <td><span class="category-tag">Purchase Batches</span></td>
+              <td>Product ID, purchase date, batch quantity, remaining quantity, cost price per unit — used for FIFO inventory costing</td>
+              <td>🟡 Medium</td>
+            </tr>
+            <tr>
+              <td><span class="category-tag">Sales &amp; POS Transactions</span></td>
+              <td>Sale date/time, customer ID &amp; name, payment method (Cash/Bank), bank reference, line items (product, quantity, price, discount, tax, total), grand total, paid amount, change amount, notes, FBR invoice reference number, FBR QR data, ZATCA QR data</td>
+              <td>🔴 High</td>
+            </tr>
+            <tr>
+              <td><span class="category-tag">Sale Returns &amp; Purchase Returns</span></td>
+              <td>Linked original transaction ID, returned items, return amounts, reason/description, timestamps</td>
+              <td>🟡 Medium</td>
+            </tr>
+            <tr>
+              <td><span class="category-tag">Purchases</span></td>
+              <td>Purchase date, supplier reference, line items, cost totals, payment method, bank reference, batch tracking data</td>
+              <td>🟡 Medium</td>
+            </tr>
+            <tr>
+              <td><span class="category-tag">Expenses</span></td>
+              <td>Expense date, category &amp; sub-category, amount, description, payment method, bank reference</td>
+              <td>🟡 Medium</td>
+            </tr>
+            <tr>
+              <td><span class="category-tag">Financial Transactions</span></td>
+              <td>Type (Deposit/Withdraw/Transfer), payment method, bank ID/name, amount, source type (Sale/Purchase/OwnerInvestment/Salary/etc.), transfer destination details, description, timestamp</td>
+              <td>🔴 High</td>
+            </tr>
+            <tr>
+              <td><span class="category-tag">Bank Accounts</span></td>
+              <td>Bank name, account label, balance tracking. No raw account numbers, IBAN, or card details are stored.</td>
+              <td>🟡 Medium</td>
+            </tr>
+            <tr>
+              <td><span class="category-tag">Booked Orders</span></td>
+              <td>Order booker ID &amp; name, customer reference, delivery area, order date, expected delivery date, item list, order totals, payment method, order status (pending/approved/dispatched/delivered/cancelled), linked generated sale ID</td>
+              <td>🟡 Medium</td>
+            </tr>
+            <tr>
+              <td><span class="category-tag">Stock Movements</span></td>
+              <td>Product ID/name, movement type (purchase/sale/adjustment), quantity, reference ID &amp; type, previous/new stock levels, cost/sale price at time of movement, description</td>
+              <td>🟢 Low</td>
+            </tr>
+            <tr>
+              <td><span class="category-tag">Tax Integration Credentials</span></td>
+              <td>FBR POS ID, FBR User Token (Bearer), FBR NTN, FBR STRN; ZATCA Seller Name, ZATCA VAT Registration Number (15 digits), ZATCA phase setting. Enabled/disabled flags.</td>
+              <td>🔴🔴 Very High</td>
+            </tr>
+            <tr>
+              <td><span class="category-tag">Geography (Cities &amp; Areas)</span></td>
+              <td>User-defined city names and area/zone names for customer, supplier, and order segmentation</td>
+              <td>🟢 Low</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>Automatically collected via Firebase infrastructure:</strong> Firebase Auth internally manages session tokens and refresh tokens. Firestore logs request metadata for operational diagnostics — this is governed by Google Firebase's own privacy policy, not by this document.</p>
+      </div>
+    </article>
+
+    <!-- 04 -->
+    <article class="policy-section" id="s4">
+      <div class="section-head">
+        <div class="section-num-badge">4</div>
+        <div>
+          <div class="section-kicker">Purpose of Processing</div>
+          <div class="section-title">How We Use Your Data</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <p>Every piece of data collected serves a direct, specific operational purpose within the application. No data is used for any purpose outside of delivering the application's features to your organisation.</p>
+        <p><strong>Authentication &amp; Access Control:</strong> Email credentials authenticate users via Firebase Auth. User profiles and permission strings enforce role-based access to all screens and data operations in real time.</p>
+        <p><strong>Point-of-Sale &amp; Sales Operations:</strong> Customer data, product data, and pricing power the POS checkout, sale recording, receipt generation, stock level updates, and customer balance tracking.</p>
+        <p><strong>Inventory Management:</strong> Product and batch data enable FIFO stock tracking, stock movement history, low-stock threshold alerting, and cost-of-goods calculations.</p>
+        <p><strong>Financial Reporting:</strong> Transaction, expense, purchase, and sales data generate cash-flow reports, profit/loss analysis, customer/supplier ledgers, and employee payroll summaries — displayed exclusively within your company's account.</p>
+        <p><strong>Document Generation (On-Device):</strong> The <code>pdf</code> and <code>printing</code> Flutter packages render A4 invoices and 58mm/80mm thermal receipts locally on your device from your business data. PDFs are generated in-memory and only printed/shared at your explicit direction — no PDFs are uploaded to any server.</p>
+        <p><strong>Tax Filing (FBR / ZATCA):</strong> When enabled, invoice data is transmitted to government tax authority APIs on your behalf. Full details are in Sections 6 and 7.</p>
+        <p><strong>QR Code Generation (On-Device):</strong> The <code>qr_flutter</code> package generates QR codes entirely on your device from ZATCA TLV-encoded data and FBR invoice references for embedding in receipts. No external QR service is contacted.</p>
+        <p><strong>Order Management:</strong> The order-booking workflow uses booker identity, customer data, and area assignments to track field sales orders from submission through approval, dispatch, delivery, and conversion to sales records.</p>
+        <p><strong>URL Launching:</strong> The <code>url_launcher</code> package may open external web links from the About or Contact Us screens. No application data is transmitted when opening a URL beyond the URL itself.</p>
+        <div class="callout callout-alert">
+          <div class="callout-icon">🚫</div>
+          <div class="callout-body"><p><strong>We categorically do not:</strong> sell your data · use it for advertising · share it with data brokers · train AI/ML models on it · perform cross-business analytics · monitor your employees · or use your data for any purpose outside of operating this application for your organisation.</p></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 05 -->
+    <article class="policy-section" id="s5">
+      <div class="section-head">
+        <div class="section-num-badge">5</div>
+        <div>
+          <div class="section-kicker">Cloud Infrastructure</div>
+          <div class="section-title">Firebase &amp; Google Cloud Services</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <p>The App is built on <strong>Google Firebase</strong> (Google LLC). Your data is stored through two Firebase services:</p>
+        <p><strong>Firebase Authentication (v5.3.1):</strong> Handles email/password sign-in, session token management, and secure credential storage. Passwords are never stored in plaintext. Firebase Auth applies modern cryptographic standards. When a user signs out, the session is invalidated and all subscriptions are cancelled.</p>
+        <p><strong>Cloud Firestore (v5.4.4):</strong> A serverless NoSQL document database where all business data resides. Data is organised under a strict multi-tenant hierarchy isolating each business under its unique <code>companyId</code>:</p>
+        <div class="callout callout-info">
+          <div class="callout-icon">🗂️</div>
+          <div class="callout-body">
+            <p><strong>Firestore Structure:</strong><br>
+            <code>companies/{companyId}/sales/</code>&nbsp;&nbsp;<code>companies/{companyId}/purchases/</code><br>
+            <code>companies/{companyId}/products/</code>&nbsp;&nbsp;<code>companies/{companyId}/customers/</code><br>
+            <code>companies/{companyId}/employees/</code>&nbsp;&nbsp;<code>companies/{companyId}/settings/</code><br>
+            <code>companies/{companyId}/expenses/</code>&nbsp;&nbsp;<code>companies/{companyId}/orders/</code><br>
+            <code>userProfiles/{uid}/</code> &nbsp;— Top-level, not under any company</p>
+          </div>
+        </div>
+        <p>Each business's data is isolated under a unique companyId (equal to the founding administrator's Firebase UID). Sub-users share the same company namespace but are restricted by application-level role-based access control.</p>
+        <p>By using the App you also agree to <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer" style="color:#2563ab">Google Firebase's Privacy Policy</a>. All data in transit is encrypted with TLS; all data at rest is encrypted by Google Cloud AES-256 server-side encryption. Firebase may process data in US or other region data centres depending on your Firebase project configuration.</p>
+      </div>
+    </article>
+
+    <!-- 06 -->
+    <article class="policy-section" id="s6">
+      <div class="section-head">
+        <div class="section-num-badge">6</div>
+        <div>
+          <div class="section-kicker">Pakistan Tax Compliance</div>
+          <div class="section-title">FBR POS Integration (Pakistan)</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <p>The App offers an optional integration with the <strong>Federal Board of Revenue (FBR)</strong> of Pakistan via the IMSP POS Integration API, enabling real-time electronic invoice submission as required by Pakistani tax law for registered POS merchants.</p>
+        <p><strong>API Endpoints:</strong><br>
+        — Live: <code>https://gw.fbr.gov.pk/imsp/v1/api/Live/PostData</code><br>
+        — Sandbox: <code>https://gw.fbr.gov.pk/imsp/v1/api/Sandbox/PostData</code></p>
+        <p><strong>Data transmitted to FBR per invoice:</strong> Invoice number, POS ID, date/time (yyyyMMddHHmmss), buyer name (or "Walk-in Customer"), buyer type (B2C), payment mode (1=Cash / 2=Bank), line-item details (item code from product ID, item name, quantity, PCT code, tax rate, sale value, tax charged, discount, total amount), total bill amount, total sale value, total quantity, total tax charged, total discount, payable amount.</p>
+        <p><strong>Credentials stored in Firestore (under your company settings document):</strong> FBR POS ID (integer), FBR User Token (Bearer authentication token), FBR NTN (National Tax Number), FBR STRN (Sales Tax Registration Number), Sandbox mode toggle.</p>
+        <div class="callout callout-warning">
+          <div class="callout-icon">⚠️</div>
+          <div class="callout-body"><p><strong>Credential Security:</strong> Your FBR Bearer token and tax registration numbers are stored in your Firestore document. You are solely responsible for maintaining the security of your Firebase account. We strongly recommend using Sandbox mode for testing and switching to Live mode only once integration is verified. Immediately rotate your FBR token if you suspect a security incident.</p></div>
+        </div>
+        <p>FBR integration is disabled by default and entirely opt-in. The FBR API returns an Invoice Reference Number and a QR code string per successful submission. Both are saved to the sale record in Firestore and embedded into printed receipts and PDF invoices for consumer-facing tax compliance.</p>
+      </div>
+    </article>
+
+    <!-- 07 -->
+    <article class="policy-section" id="s7">
+      <div class="section-head">
+        <div class="section-num-badge">7</div>
+        <div>
+          <div class="section-kicker">Saudi Arabia Tax Compliance</div>
+          <div class="section-title">ZATCA Fatoora Integration (Saudi Arabia)</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <p>The App supports optional compliance with the <strong>Zakat, Tax and Customs Authority (ZATCA)</strong> e-invoicing mandate (Fatoora) of the Kingdom of Saudi Arabia.</p>
+        <p><strong>Phase 1 — QR Code Generation (Fully On-Device):</strong> The App generates ZATCA-compliant QR codes locally on your device using a TLV (Tag-Length-Value) binary encoding per the ZATCA specification. The TLV payload is Base64-encoded using Dart standard libraries only:</p>
+        <table class="data-table">
+          <thead><tr><th>TLV Tag</th><th>Content</th><th>Source Field</th></tr></thead>
+          <tbody>
+            <tr><td><code>0x01</code> Seller Name</td><td>Your registered business seller name</td><td><code>zatcaSellerName</code></td></tr>
+            <tr><td><code>0x02</code> VAT Number</td><td>Your 15-digit VAT Registration Number</td><td><code>zatcaVatNumber</code></td></tr>
+            <tr><td><code>0x03</code> Timestamp</td><td>Sale date/time in ISO 8601 UTC format</td><td>Sale record date</td></tr>
+            <tr><td><code>0x04</code> Invoice Total (incl. VAT)</td><td>Grand total amount (2 decimal places)</td><td>Sale <code>grandTotal</code></td></tr>
+            <tr><td><code>0x05</code> VAT Total</td><td>Total tax charged (2 decimal places)</td><td>Sale <code>totalTax</code></td></tr>
+          </tbody>
+        </table>
+        <div class="callout callout-success">
+          <div class="callout-icon">🔒</div>
+          <div class="callout-body"><p><strong>No external network call is made for ZATCA Phase 1 QR generation.</strong> All TLV encoding is performed locally on your device. The resulting Base64 QR string is stored in the sale record and printed on receipts.</p></div>
+        </div>
+        <p><strong>Phase 2 (B2B Clearance) is not yet implemented.</strong> Future versions may add Phase 2 clearance API integration with ZATCA's Fatoora portal, at which point this policy will be updated. VAT number validation enforces the required 15-digit numeric format.</p>
+        <p>ZATCA integration is disabled by default. It applies only to VAT-registered businesses in the Kingdom of Saudi Arabia.</p>
+      </div>
+    </article>
+
+    <!-- 08 -->
+    <article class="policy-section" id="s8">
+      <div class="section-head">
+        <div class="section-num-badge">8</div>
+        <div>
+          <div class="section-kicker">Access Control Architecture</div>
+          <div class="section-title">Role-Based Access Control</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <p>The App implements granular permission-based access control. Every user account holds a list of explicit permission strings in the format <code>{module}:{action}</code>. The system covers 24 modules and 4 actions (view, create, edit, delete) — totalling 96 possible permissions. Access to every screen and data operation is gated by these permissions, enforced in real time via a live Firestore profile stream.</p>
+
+        <div class="role-grid">
+          <div class="role-card">
+            <div class="role-card-head"><div class="role-dot" style="background:#c9a84c"></div><strong>Admin</strong></div>
+            <div class="role-card-body">Full access to all 96 permissions including Settings, Users, Cities, and Areas. Creates the company — their UID becomes the companyId.</div>
+          </div>
+          <div class="role-card">
+            <div class="role-card-head"><div class="role-dot" style="background:#2563ab"></div><strong>Manager</strong></div>
+            <div class="role-card-body">All operational modules (Sales, Purchases, Employees, Reports, etc.) excluding Settings, Users, Cities, and Areas management.</div>
+          </div>
+          <div class="role-card">
+            <div class="role-card-head"><div class="role-dot" style="background:#16a34a"></div><strong>Cashier</strong></div>
+            <div class="role-card-body">POS operations, creating/viewing sales, managing customers, and processing sale returns only. Cannot access financial reports, purchases, or employee records.</div>
+          </div>
+          <div class="role-card">
+            <div class="role-card-head"><div class="role-dot" style="background:#7c3aed"></div><strong>Viewer</strong></div>
+            <div class="role-card-body">Read-only access to Dashboard and Sales reports. Cannot create, edit, or delete any records.</div>
+          </div>
+          <div class="role-card">
+            <div class="role-card-head"><div class="role-dot" style="background:#9b2335"></div><strong>Order Booker</strong></div>
+            <div class="role-card-body">Field sales rep role. Can create/manage orders and view/create customers. Order visibility is restricted to their own submitted orders.</div>
+          </div>
+        </div>
+
+        <p>Administrators can create <strong>custom roles</strong> with any combination of the 96 granular permissions tailored to their organisation. Role changes take effect immediately via real-time Firestore subscription.</p>
+        <div class="callout callout-warning">
+          <div class="callout-icon">🔑</div>
+          <div class="callout-body"><p>Access control is enforced at the application layer. Administrators should also configure appropriate <strong>Firestore Security Rules</strong> at the Firebase console to enforce server-side data isolation and prevent unauthorised direct Firestore API access.</p></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 09 -->
+    <article class="policy-section" id="s9">
+      <div class="section-head">
+        <div class="section-num-badge">9</div>
+        <div>
+          <div class="section-kicker">Local Device Storage</div>
+          <div class="section-title">Offline Storage &amp; Device Caching</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <p>On non-web platforms (Android, iOS, Windows, macOS, Linux), the App enables <strong>Firestore offline persistence</strong> with unlimited cache size. This stores a local copy of your Firestore data on the device so the application remains fully functional without an internet connection.</p>
+        <div class="callout callout-info">
+          <div class="callout-icon">💾</div>
+          <div class="callout-body"><p>Configuration applied at startup: <code>persistenceEnabled: true</code> and <code>cacheSizeBytes: CACHE_SIZE_UNLIMITED</code>. Firestore caches all data the device allows. Offline writes are queued locally and synced automatically when connectivity is restored.</p></div>
+        </div>
+        <p>The local cache is stored within the App's sandboxed storage directory and is protected by the operating system's own security model (Android file-system sandbox, iOS app sandbox, Windows app container, etc.). Other applications on the device cannot access this cache.</p>
+        <p>The offline cache is cleared when the user signs out (subscriptions cancelled), when the application is uninstalled, or when the user manually clears app data through device settings. On the web platform, session-based caching applies for the browser session duration only.</p>
+      </div>
+    </article>
+
+    <!-- 10 -->
+    <article class="policy-section" id="s10">
+      <div class="section-head">
+        <div class="section-num-badge">10</div>
+        <div>
+          <div class="section-kicker">Technical Safeguards</div>
+          <div class="section-title">Data Security</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <p><strong>Encryption in Transit:</strong> All communications between the App and Firebase servers or the FBR API occur over HTTPS (TLS 1.2+). The FBR API integration enforces a 30-second request timeout.</p>
+        <p><strong>Encryption at Rest:</strong> Google Cloud Firestore encrypts all stored data with AES-256. Firebase Authentication credentials are stored in Google's secure backend, not in Firestore.</p>
+        <p><strong>Android Build Security:</strong> Release builds use ProGuard/R8 code minification (<code>isMinifyEnabled = true</code>) and resource shrinking (<code>isShrinkResources = true</code>), significantly hardening against reverse engineering. The signing keystore is not committed to source control.</p>
+        <p><strong>Session Isolation:</strong> On sign-out, the <code>companyId</code> is cleared from memory, all Firestore stream subscriptions are cancelled, and Firebase Auth tokens are invalidated. Re-access requires full re-authentication.</p>
+        <p><strong>Real-Time Permission Enforcement:</strong> Permission changes applied by an administrator are reflected immediately through a live Firestore profile subscription — no app restart is required.</p>
+        <div class="callout callout-warning">
+          <div class="callout-icon">🛡️</div>
+          <div class="callout-body"><p>No system is fully immune to security risk. We recommend: strong unique passwords · immediately revoking access for departing employees via the Users screen · regularly reviewing active user accounts and permissions · keeping the application updated to the latest version.</p></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 11 -->
+    <article class="policy-section" id="s11">
+      <div class="section-head">
+        <div class="section-num-badge">11</div>
+        <div>
+          <div class="section-kicker">Third Parties &amp; Disclosure</div>
+          <div class="section-title">Data Sharing &amp; Disclosure</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <p>We do not sell, rent, trade, or broker your data to any third party under any circumstances. Data may only be disclosed in these strictly limited situations:</p>
+        <p><strong>1. Within Your Organisation:</strong> Data is visible to sub-users within your company account, subject to their role permissions. You control who has what access.</p>
+        <p><strong>2. Google Firebase (Infrastructure Processor):</strong> Your data is stored on Google Firebase infrastructure. Google acts as a data processor under Firebase's standard data processing addendum. Google does not use your App data to personalise Google products or serve advertisements.</p>
+        <p><strong>3. FBR Government API — Pakistan Only, When Enabled:</strong> Invoice data is transmitted to <code>gw.fbr.gov.pk</code> only when FBR integration is enabled and a sale is completed. This fulfils your legal obligation as a registered POS merchant in Pakistan.</p>
+        <p><strong>4. ZATCA — Phase 1 Fully On-Device:</strong> No ZATCA data is transmitted to any external server in the current version. QR generation is entirely local.</p>
+        <p><strong>5. Legal Requirement:</strong> We may disclose data if compelled by applicable law, valid court order, or governmental authority. We will notify you of such requests where legally permitted.</p>
+        <div class="callout callout-success">
+          <div class="callout-icon">✅</div>
+          <div class="callout-body"><p>The only external network destinations the App communicates with are: Google Firebase (authentication and database sync) and the FBR API endpoint (if and only if you enable FBR integration). No analytics platforms, advertising networks, data brokers, or social media SDKs are present.</p></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 12 -->
+    <article class="policy-section" id="s12">
+      <div class="section-head">
+        <div class="section-num-badge">12</div>
+        <div>
+          <div class="section-kicker">Data Lifecycle</div>
+          <div class="section-title">Data Retention &amp; Deletion</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <p>Your data is retained for as long as your company account is active. Individual records persist until deleted through the App's interface or until the company account is removed.</p>
+        <p><strong>In-App Record Deletion:</strong> Deleting any record (customer, product, transaction, etc.) removes the Firestore document immediately. Some deletions have cascading effects — for example, deleting a product also affects related stock item records.</p>
+        <p><strong>Sub-User Account Removal:</strong> An admin can remove sub-user accounts from the Users management screen, deleting the Firestore <code>userProfile</code> document. The Firebase Auth record remains unless separately deleted via the Firebase console.</p>
+        <p><strong>Full Company Account Deletion:</strong> To permanently delete your entire company account and all associated data, contact us at the address in Section 16. Upon verification of your administrator identity, we will complete data purge within <strong>30 business days</strong> and confirm deletion in writing.</p>
+        <p><strong>Local Device Cache:</strong> Uninstalling the App removes the local Firestore cache. You may also clear it via device app storage settings without uninstalling.</p>
+      </div>
+    </article>
+
+    <!-- 13 -->
+    <article class="policy-section" id="s13">
+      <div class="section-head">
+        <div class="section-num-badge">13</div>
+        <div>
+          <div class="section-kicker">GDPR / PDPA / PDPL &amp; Other Frameworks</div>
+          <div class="section-title">Your Rights</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <p>Depending on your jurisdiction, you hold the following rights over your personal data. We are committed to honoring all verified requests:</p>
+        <div class="rights-list">
+          <div class="right-row">
+            <div class="right-icon-cell">👁️</div>
+            <div class="right-content">
+              <div class="right-title">Right of Access</div>
+              <div class="right-desc">Request a copy of all personal data we hold about you. Much of this is already visible directly within the App.</div>
+            </div>
+          </div>
+          <div class="right-row">
+            <div class="right-icon-cell">✏️</div>
+            <div class="right-content">
+              <div class="right-title">Right to Rectification</div>
+              <div class="right-desc">Correct inaccurate data directly via Edit screens in the App, or by contacting us.</div>
+            </div>
+          </div>
+          <div class="right-row">
+            <div class="right-icon-cell">🗑️</div>
+            <div class="right-content">
+              <div class="right-title">Right to Erasure ("Right to be Forgotten")</div>
+              <div class="right-desc">Request deletion of your personal data and full company account. See Section 12 for the process.</div>
+            </div>
+          </div>
+          <div class="right-row">
+            <div class="right-icon-cell">🚫</div>
+            <div class="right-content">
+              <div class="right-title">Right to Object</div>
+              <div class="right-desc">Object to processing of your personal data. As we process data solely to deliver the contracted service, objection will typically result in account closure.</div>
+            </div>
+          </div>
+          <div class="right-row">
+            <div class="right-icon-cell">📤</div>
+            <div class="right-content">
+              <div class="right-title">Right to Data Portability</div>
+              <div class="right-desc">Request your data in a structured, machine-readable JSON format. Contact us to initiate a data export.</div>
+            </div>
+          </div>
+          <div class="right-row">
+            <div class="right-icon-cell">⏸️</div>
+            <div class="right-content">
+              <div class="right-title">Right to Restriction of Processing</div>
+              <div class="right-desc">Request that we limit processing of your data while a dispute is being resolved.</div>
+            </div>
+          </div>
+          <div class="right-row">
+            <div class="right-icon-cell">🏛️</div>
+            <div class="right-content">
+              <div class="right-title">Right to Lodge a Complaint</div>
+              <div class="right-desc">If you believe your rights have been violated, you may complain to the relevant data protection authority in your country (e.g., PDPC in Pakistan, SDAIA/NCA in Saudi Arabia, ICO in the UK).</div>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top:16px">We will respond to all verified requests within <strong>30 days</strong>. To exercise rights not available directly in the App, use the contact information in Section 16.</p>
+      </div>
+    </article>
+
+    <!-- 14 -->
+    <article class="policy-section" id="s14">
+      <div class="section-head">
+        <div class="section-num-badge">14</div>
+        <div>
+          <div class="section-kicker">Minor User Protection</div>
+          <div class="section-title">Children's Privacy</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <p>Arriverr Business Management is a professional business operations application designed exclusively for adults (18+). The App is not directed at individuals under 18 years of age, and we do not knowingly collect personal information from minors.</p>
+        <p>If you become aware that a person under the age of 18 has registered an account or that minor data has been entered without appropriate consent, please notify us immediately at the contact address in Section 16. We will take prompt action to remove such information from our systems.</p>
+      </div>
+    </article>
+
+    <!-- 15 -->
+    <article class="policy-section" id="s15">
+      <div class="section-head">
+        <div class="section-num-badge">15</div>
+        <div>
+          <div class="section-kicker">Policy Evolution</div>
+          <div class="section-title">Changes to This Policy</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <p>We may revise this Privacy Policy from time to time to reflect changes in our application features, applicable laws, or operating practices. The "Last Updated" date in the masthead will always reflect the most recent revision.</p>
+        <p>For <strong>material changes</strong> that substantially affect your rights or how we process personal data, we will make reasonable efforts to notify you via an in-app notification, within the About/Settings screen, or via your registered email address.</p>
+        <p>Continued use of the application after any policy update constitutes your acceptance of the revised terms. If you do not accept the revised policy, please stop using the application and request account deletion per Section 12.</p>
+      </div>
+    </article>
+
+    <!-- 16 -->
+    <article class="policy-section" id="s16">
+      <div class="section-head">
+        <div class="section-num-badge">16</div>
+        <div>
+          <div class="section-kicker">Get in Touch</div>
+          <div class="section-title">Developer &amp; Contact Details</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <p>For any questions, concerns, data rights requests, or privacy complaints regarding Arriverr Business Management or this Privacy Policy, please reach out to our team through any of the channels below.</p>
+
+        <!-- Developer Identity Card -->
+        <div style="background:var(--navy);padding:32px;margin:20px 0;display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+          <!-- Circular Logo -->
+          <div style="flex-shrink:0;position:relative;">
+            <div style="
+              width:88px;height:88px;
+              border-radius:50%;
+              border:2px solid var(--gold);
+              box-shadow:0 0 0 4px rgba(201,168,76,.15), 0 8px 24px rgba(0,0,0,.4);
+              overflow:hidden;
+              background:var(--navy-mid);
+            ">
+              <img
+                src="arriverr.jpg"
+                alt="Arriverr Logo"
+                style="
+                  width:100%;height:100%;
+                  object-fit:cover;
+                  object-position:center;
+                  display:block;
+                "
+                onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:32px;\'>💼</div>';"
+              />
+            </div>
+            <!-- Gold ring accent -->
+            <div style="
+              position:absolute;inset:-5px;
+              border-radius:50%;
+              border:1px solid rgba(201,168,76,.25);
+              pointer-events:none;
+            "></div>
+          </div>
+          <!-- Developer Info -->
+          <div>
+            <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,168,76,.55);margin-bottom:6px;">Developed &amp; Published by</div>
+            <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--gold);line-height:1.1;letter-spacing:.02em;">Arriverr</div>
+            <div style="font-size:13px;color:rgba(255,255,255,.45);font-style:italic;margin-top:6px;">"Turn Your Ideas Into Reality"</div>
+          </div>
+        </div>
+
+        <!-- Contact Methods Grid -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0;">
+
+          <!-- Email -->
+          <div class="contact-block" style="margin:0;flex-direction:column;align-items:flex-start;gap:12px;padding:22px 24px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div class="contact-shield" style="width:40px;height:40px;font-size:18px;">✉️</div>
+              <div>
+                <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(201,168,76,.6);margin-bottom:2px;">Email Support</div>
+                <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,.7);">Privacy &amp; Data Inquiries</div>
+              </div>
+            </div>
+            <a href="mailto:ahmed.mug01@gmail.com" style="color:var(--gold-light);text-decoration:none;font-size:14px;font-weight:500;word-break:break-all;">ahmed.mug01@gmail.com</a>
+            <div style="font-size:11px;color:rgba(255,255,255,.35);">Response within 72 hours</div>
+          </div>
+
+          <!-- WhatsApp -->
+          <div class="contact-block" style="margin:0;flex-direction:column;align-items:flex-start;gap:12px;padding:22px 24px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div class="contact-shield" style="width:40px;height:40px;font-size:18px;border-color:rgba(37,211,102,.4);color:#25D366;">💬</div>
+              <div>
+                <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(37,211,102,.6);margin-bottom:2px;">WhatsApp Support</div>
+                <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,.7);">Live Chat &amp; Technical Help</div>
+              </div>
+            </div>
+            <a href="https://wa.me/923456703860" target="_blank" rel="noopener noreferrer" style="color:#4ade80;text-decoration:none;font-size:14px;font-weight:500;">+92 345 670 3860</a>
+            <div style="font-size:11px;color:rgba(255,255,255,.35);">Pakistan (PKT) — WhatsApp preferred</div>
+          </div>
+
+        </div>
+
+        <p>You may also use the built-in <strong>Contact Us</strong> screen inside the App (accessible from the main navigation menu) to send a message directly via your device's email client or WhatsApp, without leaving the application.</p>
+
+        <div class="callout callout-warning">
+          <div class="callout-icon">⚡</div>
+          <div class="callout-body"><p>For <strong>urgent security matters</strong> — such as suspected unauthorised access to your account or a data breach — please email immediately with subject line <em>"URGENT — Security Incident"</em> and include your registered email address and company name. We treat all security reports as highest priority.</p></div>
+        </div>
+
+        <div class="callout callout-info">
+          <div class="callout-icon">📋</div>
+          <div class="callout-body"><p>When submitting a data rights request, please include: your registered email address · your company name · a clear description of your request · and — for full account deletion — confirmation that you are the account administrator. This allows us to verify your identity and process the request efficiently. We resolve all data rights requests within <strong>30 business days</strong>.</p></div>
+        </div>
+      </div>
+    </article>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Arriverr</span>
+  <p style="color:rgba(255,255,255,.35);font-style:italic;margin-bottom:12px;">"Turn Your Ideas Into Reality"</p>
+  <p>Arriverr Business Management &nbsp;·&nbsp; Version 1.1.0 (Build 2) &nbsp;·&nbsp; <code style="font-size:11px;color:rgba(255,255,255,.35)">com.arriverr.business_management</code></p>
+  <p>Privacy Policy effective &amp; last reviewed: <strong style="color:rgba(255,255,255,.65)">February 25, 2026</strong></p>
+  <p style="margin-top:12px">
+    📧 <a href="mailto:ahmed.mug01@gmail.com">ahmed.mug01@gmail.com</a>
+    &nbsp;&nbsp;·&nbsp;&nbsp;
+    💬 <a href="https://wa.me/923456703860" target="_blank" rel="noopener noreferrer">+92 345 670 3860</a> (WhatsApp)
+  </p>
+  <p style="margin-top:16px;font-size:11px;opacity:.5">This document was produced following a comprehensive automated source-code audit covering: AndroidManifest.xml · pubspec.yaml · build.gradle.kts · about_screen.dart · contact_us_screen.dart · all service files · all data model files · all provider files · all screen implementations · firebase.json · firestore_indexes.json</p>
+</footer>
+
+</body>
+</html>

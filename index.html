@@ -197,6 +197,7 @@
     .policy-section:nth-child(14) { animation-delay: .56s; }
     .policy-section:nth-child(15) { animation-delay: .60s; }
     .policy-section:nth-child(16) { animation-delay: .64s; }
+    .policy-section:nth-child(17) { animation-delay: .68s; }
 
     .section-head { padding: 22px 32px; background: var(--navy); display: flex; align-items: center; gap: 16px; }
 
@@ -291,13 +292,13 @@
       <span class="eyebrow-text">Legal &amp; Compliance Document</span>
     </div>
     <h1>Privacy <span>Policy</span></h1>
-    <p class="masthead-desc">This policy explains exactly what data Arriverr Business Management collects, which device permissions it uses, how your information is stored and secured, and the rights you hold over your data.</p>
+    <p class="masthead-desc">This policy explains what data Arriverr Business Management collects, which device permissions and third-party services it uses, how Google Mobile Ads (AdMob) may process advertising-related information for ad-supported users, how your information is stored and secured, and the rights you hold over your data.</p>
     <dl class="masthead-meta">
       <div class="meta-cell"><dt>Application</dt><dd>Arriverr Business Management</dd></div>
       <div class="meta-cell"><dt>Publisher</dt><dd>Arriverr</dd></div>
       <div class="meta-cell"><dt>Version</dt><dd>1.1.0 (Build 2)</dd></div>
       <div class="meta-cell"><dt>Package ID</dt><dd>com.arriverr.business_management</dd></div>
-      <div class="meta-cell"><dt>Effective Date</dt><dd>February 25, 2026</dd></div>
+      <div class="meta-cell"><dt>Last Updated</dt><dd>August 22, 2026</dd></div>
     </dl>
   </div>
 </header>
@@ -315,17 +316,18 @@
         <li><a href="#s3"><span class="toc-num">03</span>Information We Collect</a></li>
         <li><a href="#s4"><span class="toc-num">04</span>How We Use Your Data</a></li>
         <li><a href="#s5"><span class="toc-num">05</span>Firebase &amp; Cloud Services</a></li>
-        <li><a href="#s6"><span class="toc-num">06</span>FBR Tax Integration (PK)</a></li>
-        <li><a href="#s7"><span class="toc-num">07</span>ZATCA Integration (SA)</a></li>
-        <li><a href="#s8"><span class="toc-num">08</span>Role-Based Access Control</a></li>
-        <li><a href="#s9"><span class="toc-num">09</span>Offline Storage &amp; Caching</a></li>
-        <li><a href="#s10"><span class="toc-num">10</span>Data Security</a></li>
-        <li><a href="#s11"><span class="toc-num">11</span>Data Sharing &amp; Disclosure</a></li>
-        <li><a href="#s12"><span class="toc-num">12</span>Data Retention &amp; Deletion</a></li>
-        <li><a href="#s13"><span class="toc-num">13</span>Your Rights</a></li>
-        <li><a href="#s14"><span class="toc-num">14</span>Children's Privacy</a></li>
-        <li><a href="#s15"><span class="toc-num">15</span>Policy Changes</a></li>
-        <li><a href="#s16"><span class="toc-num">16</span>Contact Us</a></li>
+        <li><a href="#s6"><span class="toc-num">06</span>Advertising &amp; Google AdMob</a></li>
+        <li><a href="#s7"><span class="toc-num">07</span>FBR Tax Integration (PK)</a></li>
+        <li><a href="#s8"><span class="toc-num">08</span>ZATCA Integration (SA)</a></li>
+        <li><a href="#s9"><span class="toc-num">09</span>Role-Based Access Control</a></li>
+        <li><a href="#s10"><span class="toc-num">10</span>Offline Storage &amp; Caching</a></li>
+        <li><a href="#s11"><span class="toc-num">11</span>Data Security</a></li>
+        <li><a href="#s12"><span class="toc-num">12</span>Data Sharing &amp; Disclosure</a></li>
+        <li><a href="#s13"><span class="toc-num">13</span>Data Retention &amp; Deletion</a></li>
+        <li><a href="#s14"><span class="toc-num">14</span>Your Rights</a></li>
+        <li><a href="#s15"><span class="toc-num">15</span>Children's Privacy</a></li>
+        <li><a href="#s16"><span class="toc-num">16</span>Policy Changes</a></li>
+        <li><a href="#s17"><span class="toc-num">17</span>Contact Us</a></li>
       </ul>
     </nav>
   </aside>
@@ -379,19 +381,25 @@
               <td><code>INTERNET</code></td>
               <td>Android · Windows*</td>
               <td>Yes</td>
-              <td>Sync data with Google Firebase (Firestore + Auth); submit invoices to FBR government API</td>
+              <td>Sync data with Google Firebase (Firestore + Auth); submit invoices to FBR government API; request and display Google AdMob ads for eligible ad-supported users</td>
             </tr>
             <tr>
               <td><code>ACCESS_NETWORK_STATE</code></td>
               <td>Android</td>
               <td>Yes</td>
-              <td>Detect connectivity status to manage Firestore offline-first behaviour gracefully</td>
+              <td>Detect connectivity status to manage Firestore offline-first behaviour gracefully and avoid unnecessary ad-loading attempts while offline</td>
             </tr>
             <tr>
               <td><code>CAMERA</code><br><code>android.hardware.camera</code></td>
               <td>Android · iOS</td>
               <td><strong>No</strong> (optional)</td>
               <td>QR/barcode scanning for fast product lookup in POS screen via the <code>mobile_scanner</code> package. Declared with <code>android:required="false"</code> — the app functions fully without camera access</td>
+            </tr>
+            <tr>
+              <td><code>com.google.android.gms.permission.AD_ID</code></td>
+              <td>Android 13+</td>
+              <td><strong>Conditional</strong></td>
+              <td>May be merged automatically by the Google Mobile Ads SDK. Where available and permitted, Google may use the Android Advertising ID for ad delivery, measurement, analytics, and fraud prevention. Users can reset/delete the Advertising ID in Android settings, and consent or limited-ads settings may restrict its use.</td>
             </tr>
           </tbody>
         </table>
@@ -414,7 +422,16 @@
         </div>
       </div>
       <div class="section-body">
-        <p>All data collected by the App is business operational data explicitly entered by your organisation. We do not collect behavioural analytics, advertising identifiers, device fingerprints, or passive telemetry of any kind. The complete inventory of data stored in Cloud Firestore is:</p>
+        <p>Most information stored by the App is business operational data explicitly entered by your organisation and stored in Cloud Firestore. In addition, when the App operates in <strong>ad-supported mode</strong>, the integrated <strong>Google Mobile Ads SDK (AdMob)</strong> may automatically collect or receive limited device, advertising, interaction, and diagnostic information as described below. This advertising-related information is processed by Google under Google's terms and is not part of your organisation's Firestore business records.</p>
+        <div class="callout callout-warning">
+          <div class="callout-icon">📢</div>
+          <div class="callout-body"><p><strong>AdMob data that may be processed for ad-supported users:</strong> IP address (which may be used to estimate general location), Android Advertising ID / App Set ID or similar device identifiers where available, app and ad interaction information (such as app launch, taps, and video/ad views), and diagnostic/performance information. Google states that these data types may be used for advertising, analytics, measurement, and fraud prevention.</p></div>
+        </div>
+        <div class="callout callout-success">
+          <div class="callout-icon">⭐</div>
+          <div class="callout-body"><p><strong>Subscribed customers are ad-free.</strong> Users with an active paid subscription are not shown AdMob advertisements. The Google Mobile Ads SDK may still be included in the installed application, so limited technical processing can occur if the SDK initializes before or independently of the subscription entitlement check; however, the App does not intentionally request or display ads after an active subscription has been confirmed.</p></div>
+        </div>
+        <p>The complete inventory of business data stored in Cloud Firestore is:</p>
         <table class="data-table">
           <thead><tr><th>Category</th><th>Data Fields Stored</th><th>Sensitivity</th></tr></thead>
           <tbody>
@@ -519,19 +536,20 @@
         </div>
       </div>
       <div class="section-body">
-        <p>Every piece of data collected serves a direct, specific operational purpose within the application. No data is used for any purpose outside of delivering the application's features to your organisation.</p>
+        <p>Business data collected by the App serves direct operational purposes within the application. Separate advertising-related data may be processed by Google Mobile Ads (AdMob) when the App is used in ad-supported mode, as described in Section 6.</p>
         <p><strong>Authentication &amp; Access Control:</strong> Email credentials authenticate users via Firebase Auth. User profiles and permission strings enforce role-based access to all screens and data operations in real time.</p>
         <p><strong>Point-of-Sale &amp; Sales Operations:</strong> Customer data, product data, and pricing power the POS checkout, sale recording, receipt generation, stock level updates, and customer balance tracking.</p>
         <p><strong>Inventory Management:</strong> Product and batch data enable FIFO stock tracking, stock movement history, low-stock threshold alerting, and cost-of-goods calculations.</p>
         <p><strong>Financial Reporting:</strong> Transaction, expense, purchase, and sales data generate cash-flow reports, profit/loss analysis, customer/supplier ledgers, and employee payroll summaries — displayed exclusively within your company's account.</p>
         <p><strong>Document Generation (On-Device):</strong> The <code>pdf</code> and <code>printing</code> Flutter packages render A4 invoices and 58mm/80mm thermal receipts locally on your device from your business data. PDFs are generated in-memory and only printed/shared at your explicit direction — no PDFs are uploaded to any server.</p>
-        <p><strong>Tax Filing (FBR / ZATCA):</strong> When enabled, invoice data is transmitted to government tax authority APIs on your behalf. Full details are in Sections 6 and 7.</p>
+        <p><strong>Tax Filing (FBR / ZATCA):</strong> When enabled, invoice data is transmitted to government tax authority APIs on your behalf. Full details are in Sections 7 and 8.</p>
         <p><strong>QR Code Generation (On-Device):</strong> The <code>qr_flutter</code> package generates QR codes entirely on your device from ZATCA TLV-encoded data and FBR invoice references for embedding in receipts. No external QR service is contacted.</p>
         <p><strong>Order Management:</strong> The order-booking workflow uses booker identity, customer data, and area assignments to track field sales orders from submission through approval, dispatch, delivery, and conversion to sales records.</p>
         <p><strong>URL Launching:</strong> The <code>url_launcher</code> package may open external web links from the About or Contact Us screens. No application data is transmitted when opening a URL beyond the URL itself.</p>
+        <p><strong>Advertising for Non-Subscribed Users:</strong> When an account does not have an active paid subscription, the App may request and display advertisements through Google AdMob. Advertising-related device and interaction data may be processed by Google for ad delivery, measurement, analytics, security, and fraud prevention. We do not provide your sales, customer, supplier, employee, inventory, accounting, tax credential, or other business records to advertisers for ad targeting.</p>
         <div class="callout callout-alert">
           <div class="callout-icon">🚫</div>
-          <div class="callout-body"><p><strong>We categorically do not:</strong> sell your data · use it for advertising · share it with data brokers · train AI/ML models on it · perform cross-business analytics · monitor your employees · or use your data for any purpose outside of operating this application for your organisation.</p></div>
+          <div class="callout-body"><p><strong>We categorically do not:</strong> sell your business data · provide your customer, supplier, employee, sales, inventory, accounting, or tax records to advertisers · share business records with data brokers · train our AI/ML models on your business data · perform cross-business profiling · or monitor your employees for advertising purposes. AdMob's separate processing of advertising-related device and interaction data is described in Section 6.</p></div>
         </div>
       </div>
     </article>
@@ -565,10 +583,54 @@
       </div>
     </article>
 
+
     <!-- 06 -->
     <article class="policy-section" id="s6">
       <div class="section-head">
         <div class="section-num-badge">6</div>
+        <div>
+          <div class="section-kicker">Advertising &amp; Monetisation</div>
+          <div class="section-title">Google AdMob &amp; Ad-Supported Use</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <p>The App uses <strong>Google AdMob</strong> through the Google Mobile Ads SDK to display advertisements to users who are using an ad-supported version of the service. Google LLC operates AdMob and may act as an independent controller or processor for certain advertising-related data under its own terms and privacy policies.</p>
+
+        <div class="callout callout-success">
+          <div class="callout-icon">⭐</div>
+          <div class="callout-body"><p><strong>No Ads for Active Subscribers:</strong> Customers with an active paid subscription are not shown advertisements. If a subscription expires, is cancelled, or cannot be verified as active, the App may return to ad-supported mode until subscription access is restored.</p></div>
+        </div>
+
+        <p><strong>Information Google Mobile Ads may automatically process:</strong></p>
+        <table class="data-table">
+          <thead><tr><th>Data Type</th><th>Examples / Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><span class="category-tag">IP Address</span></td><td>Used for network communication and may be used by Google to estimate a device's general location.</td></tr>
+            <tr><td><span class="category-tag">Device &amp; Advertising Identifiers</span></td><td>Android Advertising ID, App Set ID, SDK instance identifiers, or similar identifiers where available and permitted; used for ad delivery, frequency management, measurement, analytics, and fraud prevention.</td></tr>
+            <tr><td><span class="category-tag">User / Ad Interactions</span></td><td>App launch and interaction information, ad impressions, taps/clicks, and video/ad views used to operate and measure advertising.</td></tr>
+            <tr><td><span class="category-tag">Diagnostics &amp; Performance</span></td><td>SDK/app performance information such as launch timing, crashes or hangs, and related diagnostics used for reliability, analytics, and fraud prevention.</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>Personalised, Non-Personalised, and Limited Ads:</strong> Depending on your region, consent choices, device settings, age/eligibility rules, and our Google ad-request configuration, Google may serve personalised ads, non-personalised ads, or limited ads. Where applicable law requires consent before certain advertising processing, the App should request the required consent before requesting personalised advertising.</p>
+
+        <p><strong>Business Data Is Not Used for Ad Targeting:</strong> We do not intentionally provide AdMob with your customer records, supplier records, employee information, sales or purchase records, inventory information, accounting/financial records, FBR credentials, ZATCA credentials, or other business content for personalised advertising.</p>
+
+        <p><strong>Subscription Status:</strong> The App uses your subscription entitlement/status to decide whether ad placements should be enabled. This status is an application access-control signal and is not intentionally combined by Arriverr with your business records to create advertising profiles.</p>
+
+        <p><strong>Google Privacy Information:</strong> You can learn more about how Google handles information in advertising products at <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" style="color:#2563ab">Google's Advertising Policies &amp; Technologies information</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color:#2563ab">Google Privacy Policy</a>.</p>
+
+        <div class="callout callout-info">
+          <div class="callout-icon">ℹ️</div>
+          <div class="callout-body"><p>The App's developer website publishes an <code>app-ads.txt</code> file to identify authorised digital advertising sellers for the App. This file is a public advertising-transparency record and does not contain end-user personal information.</p></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 07 -->
+    <article class="policy-section" id="s7">
+      <div class="section-head">
+        <div class="section-num-badge">7</div>
         <div>
           <div class="section-kicker">Pakistan Tax Compliance</div>
           <div class="section-title">FBR POS Integration (Pakistan)</div>
@@ -589,10 +651,10 @@
       </div>
     </article>
 
-    <!-- 07 -->
-    <article class="policy-section" id="s7">
+    <!-- 08 -->
+    <article class="policy-section" id="s8">
       <div class="section-head">
-        <div class="section-num-badge">7</div>
+        <div class="section-num-badge">8</div>
         <div>
           <div class="section-kicker">Saudi Arabia Tax Compliance</div>
           <div class="section-title">ZATCA Fatoora Integration (Saudi Arabia)</div>
@@ -620,10 +682,10 @@
       </div>
     </article>
 
-    <!-- 08 -->
-    <article class="policy-section" id="s8">
+    <!-- 09 -->
+    <article class="policy-section" id="s9">
       <div class="section-head">
-        <div class="section-num-badge">8</div>
+        <div class="section-num-badge">9</div>
         <div>
           <div class="section-kicker">Access Control Architecture</div>
           <div class="section-title">Role-Based Access Control</div>
@@ -663,10 +725,10 @@
       </div>
     </article>
 
-    <!-- 09 -->
-    <article class="policy-section" id="s9">
+    <!-- 10 -->
+    <article class="policy-section" id="s10">
       <div class="section-head">
-        <div class="section-num-badge">9</div>
+        <div class="section-num-badge">10</div>
         <div>
           <div class="section-kicker">Local Device Storage</div>
           <div class="section-title">Offline Storage &amp; Device Caching</div>
@@ -683,10 +745,10 @@
       </div>
     </article>
 
-    <!-- 10 -->
-    <article class="policy-section" id="s10">
+    <!-- 11 -->
+    <article class="policy-section" id="s11">
       <div class="section-head">
-        <div class="section-num-badge">10</div>
+        <div class="section-num-badge">11</div>
         <div>
           <div class="section-kicker">Technical Safeguards</div>
           <div class="section-title">Data Security</div>
@@ -705,10 +767,10 @@
       </div>
     </article>
 
-    <!-- 11 -->
-    <article class="policy-section" id="s11">
+    <!-- 12 -->
+    <article class="policy-section" id="s12">
       <div class="section-head">
-        <div class="section-num-badge">11</div>
+        <div class="section-num-badge">12</div>
         <div>
           <div class="section-kicker">Third Parties &amp; Disclosure</div>
           <div class="section-title">Data Sharing &amp; Disclosure</div>
@@ -717,21 +779,22 @@
       <div class="section-body">
         <p>We do not sell, rent, trade, or broker your data to any third party under any circumstances. Data may only be disclosed in these strictly limited situations:</p>
         <p><strong>1. Within Your Organisation:</strong> Data is visible to sub-users within your company account, subject to their role permissions. You control who has what access.</p>
-        <p><strong>2. Google Firebase (Infrastructure Processor):</strong> Your data is stored on Google Firebase infrastructure. Google acts as a data processor under Firebase's standard data processing addendum. Google does not use your App data to personalise Google products or serve advertisements.</p>
-        <p><strong>3. FBR Government API — Pakistan Only, When Enabled:</strong> Invoice data is transmitted to <code>gw.fbr.gov.pk</code> only when FBR integration is enabled and a sale is completed. This fulfils your legal obligation as a registered POS merchant in Pakistan.</p>
-        <p><strong>4. ZATCA — Phase 1 Fully On-Device:</strong> No ZATCA data is transmitted to any external server in the current version. QR generation is entirely local.</p>
-        <p><strong>5. Legal Requirement:</strong> We may disclose data if compelled by applicable law, valid court order, or governmental authority. We will notify you of such requests where legally permitted.</p>
+        <p><strong>2. Google Firebase (Infrastructure Processor):</strong> Your business data is stored on Google Firebase infrastructure. Google acts as a data processor for Firebase services under the applicable Google/Firebase terms.</p>
+        <p><strong>3. Google AdMob / Google Mobile Ads SDK — Ad-Supported Users:</strong> For users who are not covered by an active paid subscription, the App may communicate with Google advertising services to request and display ads. Google may receive IP address, advertising/device identifiers where available, app/ad interaction information, and diagnostic information for advertising, measurement, analytics, security, and fraud prevention. We do not send your organisation's customer lists, sales records, supplier records, employee records, inventory data, accounting records, or FBR/ZATCA credentials to AdMob for ad targeting.</p>
+        <p><strong>4. FBR Government API — Pakistan Only, When Enabled:</strong> Invoice data is transmitted to <code>gw.fbr.gov.pk</code> only when FBR integration is enabled and a sale is completed. This fulfils your legal obligation as a registered POS merchant in Pakistan.</p>
+        <p><strong>5. ZATCA — Phase 1 Fully On-Device:</strong> No ZATCA data is transmitted to any external server in the current version. QR generation is entirely local.</p>
+        <p><strong>6. Legal Requirement:</strong> We may disclose data if compelled by applicable law, valid court order, or governmental authority. We will notify you of such requests where legally permitted.</p>
         <div class="callout callout-success">
           <div class="callout-icon">✅</div>
-          <div class="callout-body"><p>The only external network destinations the App communicates with are: Google Firebase (authentication and database sync) and the FBR API endpoint (if and only if you enable FBR integration). No analytics platforms, advertising networks, data brokers, or social media SDKs are present.</p></div>
+          <div class="callout-body"><p>External network destinations may include Google Firebase (authentication and database sync), Google AdMob / Google advertising endpoints for eligible ad-supported users, and the FBR API endpoint when FBR integration is enabled. The App does not intentionally integrate data brokers or social-media advertising SDKs.</p></div>
         </div>
       </div>
     </article>
 
-    <!-- 12 -->
-    <article class="policy-section" id="s12">
+    <!-- 13 -->
+    <article class="policy-section" id="s13">
       <div class="section-head">
-        <div class="section-num-badge">12</div>
+        <div class="section-num-badge">13</div>
         <div>
           <div class="section-kicker">Data Lifecycle</div>
           <div class="section-title">Data Retention &amp; Deletion</div>
@@ -741,15 +804,15 @@
         <p>Your data is retained for as long as your company account is active. Individual records persist until deleted through the App's interface or until the company account is removed.</p>
         <p><strong>In-App Record Deletion:</strong> Deleting any record (customer, product, transaction, etc.) removes the Firestore document immediately. Some deletions have cascading effects — for example, deleting a product also affects related stock item records.</p>
         <p><strong>Sub-User Account Removal:</strong> An admin can remove sub-user accounts from the Users management screen, deleting the Firestore <code>userProfile</code> document. The Firebase Auth record remains unless separately deleted via the Firebase console.</p>
-        <p><strong>Full Company Account Deletion:</strong> To permanently delete your entire company account and all associated data, contact us at the address in Section 16. Upon verification of your administrator identity, we will complete data purge within <strong>30 business days</strong> and confirm deletion in writing.</p>
+        <p><strong>Full Company Account Deletion:</strong> To permanently delete your entire company account and all associated data, contact us at the address in Section 17. Upon verification of your administrator identity, we will complete data purge within <strong>30 business days</strong> and confirm deletion in writing.</p>
         <p><strong>Local Device Cache:</strong> Uninstalling the App removes the local Firestore cache. You may also clear it via device app storage settings without uninstalling.</p>
       </div>
     </article>
 
-    <!-- 13 -->
-    <article class="policy-section" id="s13">
+    <!-- 14 -->
+    <article class="policy-section" id="s14">
       <div class="section-head">
-        <div class="section-num-badge">13</div>
+        <div class="section-num-badge">14</div>
         <div>
           <div class="section-kicker">GDPR / PDPA / PDPL &amp; Other Frameworks</div>
           <div class="section-title">Your Rights</div>
@@ -776,7 +839,7 @@
             <div class="right-icon-cell">🗑️</div>
             <div class="right-content">
               <div class="right-title">Right to Erasure ("Right to be Forgotten")</div>
-              <div class="right-desc">Request deletion of your personal data and full company account. See Section 12 for the process.</div>
+              <div class="right-desc">Request deletion of your personal data and full company account. See Section 13 for the process.</div>
             </div>
           </div>
           <div class="right-row">
@@ -808,22 +871,7 @@
             </div>
           </div>
         </div>
-        <p style="margin-top:16px">We will respond to all verified requests within <strong>30 days</strong>. To exercise rights not available directly in the App, use the contact information in Section 16.</p>
-      </div>
-    </article>
-
-    <!-- 14 -->
-    <article class="policy-section" id="s14">
-      <div class="section-head">
-        <div class="section-num-badge">14</div>
-        <div>
-          <div class="section-kicker">Minor User Protection</div>
-          <div class="section-title">Children's Privacy</div>
-        </div>
-      </div>
-      <div class="section-body">
-        <p>Arriverr Business Management is a professional business operations application designed exclusively for adults (18+). The App is not directed at individuals under 18 years of age, and we do not knowingly collect personal information from minors.</p>
-        <p>If you become aware that a person under the age of 18 has registered an account or that minor data has been entered without appropriate consent, please notify us immediately at the contact address in Section 16. We will take prompt action to remove such information from our systems.</p>
+        <p style="margin-top:16px">We will respond to all verified requests within <strong>30 days</strong>. To exercise rights not available directly in the App, use the contact information in Section 17.</p>
       </div>
     </article>
 
@@ -832,14 +880,13 @@
       <div class="section-head">
         <div class="section-num-badge">15</div>
         <div>
-          <div class="section-kicker">Policy Evolution</div>
-          <div class="section-title">Changes to This Policy</div>
+          <div class="section-kicker">Minor User Protection</div>
+          <div class="section-title">Children's Privacy</div>
         </div>
       </div>
       <div class="section-body">
-        <p>We may revise this Privacy Policy from time to time to reflect changes in our application features, applicable laws, or operating practices. The "Last Updated" date in the masthead will always reflect the most recent revision.</p>
-        <p>For <strong>material changes</strong> that substantially affect your rights or how we process personal data, we will make reasonable efforts to notify you via an in-app notification, within the About/Settings screen, or via your registered email address.</p>
-        <p>Continued use of the application after any policy update constitutes your acceptance of the revised terms. If you do not accept the revised policy, please stop using the application and request account deletion per Section 12.</p>
+        <p>Arriverr Business Management is a professional business operations application designed exclusively for adults (18+). The App is not directed at individuals under 18 years of age, and we do not knowingly collect personal information from minors.</p>
+        <p>If you become aware that a person under the age of 18 has registered an account or that minor data has been entered without appropriate consent, please notify us immediately at the contact address in Section 17. We will take prompt action to remove such information from our systems.</p>
       </div>
     </article>
 
@@ -847,6 +894,22 @@
     <article class="policy-section" id="s16">
       <div class="section-head">
         <div class="section-num-badge">16</div>
+        <div>
+          <div class="section-kicker">Policy Evolution</div>
+          <div class="section-title">Changes to This Policy</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <p>We may revise this Privacy Policy from time to time to reflect changes in our application features, applicable laws, or operating practices. The "Last Updated" date in the masthead reflects the most recent revision.</p>
+        <p>For <strong>material changes</strong> that substantially affect your rights or how we process personal data, we will make reasonable efforts to notify you via an in-app notification, within the About/Settings screen, or via your registered email address.</p>
+        <p>Continued use of the application after any policy update constitutes your acceptance of the revised terms. If you do not accept the revised policy, please stop using the application and request account deletion per Section 13.</p>
+      </div>
+    </article>
+
+    <!-- 17 -->
+    <article class="policy-section" id="s17">
+      <div class="section-head">
+        <div class="section-num-badge">17</div>
         <div>
           <div class="section-kicker">Get in Touch</div>
           <div class="section-title">Developer &amp; Contact Details</div>
@@ -948,13 +1011,13 @@
   <span class="footer-logo">Arriverr</span>
   <p style="color:rgba(255,255,255,.35);font-style:italic;margin-bottom:12px;">"Turn Your Ideas Into Reality"</p>
   <p>Arriverr Business Management &nbsp;·&nbsp; Version 1.1.0 (Build 2) &nbsp;·&nbsp; <code style="font-size:11px;color:rgba(255,255,255,.35)">com.arriverr.business_management</code></p>
-  <p>Privacy Policy effective &amp; last reviewed: <strong style="color:rgba(255,255,255,.65)">February 25, 2026</strong></p>
+  <p>Privacy Policy last updated: <strong style="color:rgba(255,255,255,.65)">August 22, 2026</strong></p>
   <p style="margin-top:12px">
     📧 <a href="mailto:ahmed.mug01@gmail.com">ahmed.mug01@gmail.com</a>
     &nbsp;&nbsp;·&nbsp;&nbsp;
     💬 <a href="https://wa.me/923456703860" target="_blank" rel="noopener noreferrer">+92 345 670 3860</a> (WhatsApp)
   </p>
-  <p style="margin-top:16px;font-size:11px;opacity:.5">This document was produced following a comprehensive automated source-code audit covering: AndroidManifest.xml · pubspec.yaml · build.gradle.kts · about_screen.dart · contact_us_screen.dart · all service files · all data model files · all provider files · all screen implementations · firebase.json · firestore_indexes.json</p>
+  <p style="margin-top:16px;font-size:11px;opacity:.5">This policy reflects the application's declared privacy practices, including Firebase services, offline storage, optional tax integrations, and Google Mobile Ads (AdMob) for eligible ad-supported users. App behavior and store disclosures should be kept consistent with this policy whenever SDKs or data practices change.</p>
 </footer>
 
 </body>
